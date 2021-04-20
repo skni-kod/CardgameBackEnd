@@ -1,0 +1,19 @@
+{
+  "name": "cardgamebackend",
+  "version": "1.0.0",
+  "description": "projekt sknikod",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skni-kod/CardgameBackEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skni-kod/CardgameBackEnd/issues"
+  },
+  "homepage": "https://github.com/skni-kod/CardgameBackEnd#readme"
+}
