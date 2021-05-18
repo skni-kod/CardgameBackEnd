@@ -22,7 +22,8 @@
   "homepage": "https://github.com/skni-kod/CardgameBackEnd#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0"
   },
   "devDependencies": {},
   "keywords": []
