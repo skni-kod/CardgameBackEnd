@@ -7,6 +7,12 @@ const server = http.Server(app);
 
 app.use(express.static('client'));
 
+app.get('/', function (req, res, next) {
+    res.json({
+        'status': 'Sukces'
+    });
+});
+
 server.listen(PORT, function() {
     console.log('server running');
 });
