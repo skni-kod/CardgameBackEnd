@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "projekt sknikod",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +23,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "nodemon": "^2.0.7"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
