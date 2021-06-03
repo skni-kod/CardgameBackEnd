@@ -11,5 +11,5 @@ app.get('/', function (req, res, next) {
 });
 
 server.listen(port, () => {
-    console.log('Działa Qrwa');
+    console.log('Działa');
 });
