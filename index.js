@@ -53,22 +53,6 @@ var con = mysql.createConnection({
 });
 
 
-// Funkcje pomocnicze
-
-
-async function CompareHashPassword(password, password2) // Porównanie czy hasła są takie same
-{
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(password, salt);
-    const isSame = await bcrypt.compare(password2, hash); // updated
-    return isSame;
-}
-
-
-
-
-
-
 // Strona startowa
 app.get('/', function(request, response) {
 	//response.sendFile(path.join(__dirname + '/html/Start.html'));
@@ -151,21 +135,23 @@ app.post('/auth',
             con.query('SELECT password FROM User where username = ?', [username],
                 async function (error, results, fields)
                 {
-                    if (results.length > 0)
+                    if (typeof results[0] != "undefined")
                     {
-                        hashPassword = results[0].password;
-                        const isValid = await bcrypt.compare(password, hashPassword);
-                        if (isValid) {
-                            request.session.loggedin = true;
-                            request.session.username = username;
-                            response.redirect('/')
-                        }
-                        else
-                        {
-                            logMessage = "Niepoprawny login lub hasło";
-                            response.redirect('/Logging');
+                        if (results.length > 0) {
+                            hashPassword = results[0].password;
+                            const isValid = await bcrypt.compare(password, hashPassword);
+                            if (isValid) {
+                                request.session.loggedin = true;
+                                request.session.username = username;
+                                response.redirect('/')
+                            }
+                            else {
+                                logMessage = "Niepoprawny login lub hasło";
+                                response.redirect('/Logging');
+                            }
                         }
                     }
+                    
                     else
                     {
                         logMessage = "Niepoprawny login lub hasło";
@@ -195,60 +181,73 @@ app.post('/CreateAccount',
         var wrong = 0;
         var message = "";
 
-        if (username.length == 0)
-        {
-            message = "Podałeś za krótką nazwę użytkownika";
-            wrong = 1;
-        }
-  
-        else if (!validator.validate(email))
-        {
-            message = "Niepoprawny email";
-            wrong = 1;   
-        }
-          
-        else if (password.length < 8)
-        {
-            message = "Hasło jest za krótkie, powinno być długości przynajmniej 8";
-            wrong = 1;   
-        }
-
-        else if (password != password2)
-        {
-            message = "Hasła nie są takie same";
-            wrong = 1;
-        }
-
-        if (wrong == 1)
-        {
-            regMessage = message;
-            response.redirect('/Register');
-        }
-
-        else if(wrong == 0)
-        {
-            bcrypt.hash(password, 10,
-                function (err, hash)
+        con.query('SELECT username FROM User where username = ?', [username],
+            function (error, results, fields)
+            {
+                if (username.length == 0)
                 {
-                if (err) console.log(err);
-                password = hash;
+                    message = "Podałeś za krótką nazwę użytkownika";
+                    wrong = 1;
+                }
 
-                    con.query("Insert into User (username,password,email) values(?,?,?)", [username, password, email],
-                        function (err, result)
+                else if (typeof results[0] == "object")
+                {
+                    message = "Podana nazwa użytkownika już istnieje";
+                    wrong = 1;
+                }
+
+                else if (!validator.validate(email))
+                {
+                    message = "Niepoprawny email";
+                    wrong = 1;
+                }
+
+                else if (password.length < 8)
+                {
+                    message = "Hasło jest za krótkie, powinno być długości przynajmniej 8";
+                    wrong = 1;
+                }
+
+                else if (password != password2)
+                {
+                    message = "Hasła nie są takie same";
+                    wrong = 1;
+                }
+
+                if (wrong == 1)
+                {
+                    regMessage = message;
+                    response.redirect('/Register');
+                }
+
+                else if (wrong == 0)
+                {
+                    bcrypt.hash(password, 10,
+                        function (err, hash)
                         {
-                            if (err) {
-                                regMessage = "Błąd przy rejestracji";
-                                response.redirect('/Register');
-                            }
-                            else {
-                                startMessage = "Utworzono konto";
-                                response.redirect('/');
-                            }
+                            if (err) console.log(err);
+                            password = hash;
+
+                            con.query("Insert into User (username,password,email) values(?,?,?)", [username, password, email],
+                                function (err, result) {
+                                    if (err) {
+                                        regMessage = "Błąd przy rejestracji";
+                                        response.redirect('/Register');
+                                    }
+                                    else {
+                                        startMessage = "Utworzono konto";
+                                        response.redirect('/');
+                                    }
+                                }
+                            );
                         }
                     );
-                }
-            );    
-        }      
+                }      
+            }
+        );
+
+
+        
     }
 );
 
