@@ -19,21 +19,42 @@ server.listen(PORT, function() {
 
 
 // connection to Heroku postgresql
-const { Client } = require('pg');
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  protocol: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
   }
 });
-client.connect();
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
+
+sequelize.authenticate()
+.then(()=>{
+  console.log('Nawiazano polaczenie z baza danych');
+})
+.catch(err => {
+  console.error('Nie udalo sie nawiazac po?aczenia z baza danych');
+})
+
+const BlackCard = sequelize.define('black_cards', { text: DataTypes.TEXT });
+
+sequelize.sync({force: true})
+.then(() => {
+  console.log('Utworzono tabele w bazie danych');
+  BlackCard.bulkCreate([
+    { text: 'Ala ma kota' },
+    { text: 'Ala ma psa' },
+    { text: 'czerwona kartka dla Krychowiaka xdd' }
+  ]).then(function(){
+    return BlackCard.findAll();
+  }).then(function(cards){
+    console.log(cards);
+  });
 });
+
 
 
 module.express = app;
