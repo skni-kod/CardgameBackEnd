@@ -28,7 +28,10 @@
     "express-session": "^1.17.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.7",
-    "pg": "^8.6.0"
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "ph": "^0.1.10",
+    "sequelize": "^6.6.2"
   },
   "devDependencies": {},
   "keywords": []
