@@ -1,0 +1,7 @@
+Zainstaluj te moduły:
+npm install express
+npm install express-session
+npm install ejs
+npm install email-validator
+npm install mysql // tylko dla loklanej bazy danych
+npm install bcrypt
