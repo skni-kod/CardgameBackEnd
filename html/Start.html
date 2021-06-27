@@ -5,7 +5,7 @@
     <title> Cyberkarty </title>
     <meta name="keywords" content="karty, karcianka, cards, cyberkarty" />
     <meta http-equiv="X-UA-Compatible" content="IE = edge, chrome = 1" />
-    <link rel="stylesheet" href="/style.css" type="text/css" />
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -16,76 +16,63 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="/style.css" type="text/css" />
 </head>
 
 <body>
     <br>
 
-    <div style="position:relative;">
-        <img src="/LoginFrame.png" style="width: 15%; height: auto; float:left;">
-
+    <div class="profile">
+        
         <% if (logged) { %>
-        <img src="/LoggedProfileIcon.png" style="position: absolute; transform: translate(-210%, +50%);">
-        <img src="/Circle.png" style="position: absolute; transform: translate(-195%, +40%);">
-        <h3 style="position: absolute;transform: translate(70%, +370%)"> <%= name %> </h3>
-        <a style="position: absolute;transform: translate(-200%, +670%); color:yellow;" href="#">Moje karty</a>
-        <a id="logout" name="logout" style="position: absolute;transform: translate(-250%, +770%); color:blue;" href="/Logout">Wyloguj</a>
+        <img src="/LoggedProfileIcon.png">
+        <img src="/Circle.png">
+        <h3 > <%= name %> </h3>
+        <a href="#">Moje karty</a>
+        <a id="logout" name="logout" href="/Logout">Wyloguj</a>
 
         <% } else { %>
-        <img src="/GuestProfileIcon.png" style="position: absolute; transform: translate(-220%, +50%);">
+        <img src="/GuestProfileIcon.png" />
         <br>
-        <a style="position: absolute;transform: translate(-200%, +470%); color:black;" href="/Logging">Zaloguj się</a>
-        <a style="position: absolute;transform: translate(-170%, +570%); color:black;" href="/Register">Zarejestruj się</a>
+        <a href="/Logging">Zaloguj sie</a>
+        <a href="/Register">Zarejestruj sie</a>
         <% } %>
 
         <div class="text-success">
-        <h2><%= message %></h2>
+            <h2><%= message %></h2>
         </div>
 
     </div>
 
     <div>
-        <img src="/cyberkarty.png" / style="margin-left: 270px;">
+        <h1>CYBERKARTY</h1>
     </div>
 
 
 
-    <div style="clear:both;">
-        <br></br>
-        <center> <img src="/pseudonim.png" /> </center>
-
-        <center>
-            <form action="/action_page">
-                <input type="text" id="nick" name="nick">
-                <br><br>
-                <div class="ok"> <input type="image" src="/ok.png" /> </div>
-            </form>
-        </center>
+    <div class="main">
+        <h2>WPISZ SWOJ NICK</h2>
+        <form action="/action_page">
+            <input type="text" id="nick" name="nick">
+        </form>
 
         <br><br>
 
-
-        <center>
-            <div class="play">
-                <a href="graj\grajindex.html">
-                    <img src="/graj.png">
-                </a>
-            </div>
-        </center>
-        <center>
-            <div class="instruction">
-                <a href="instrukcja/instrukcjaindex.html">
-                    <img src="/instrukcja.png">
-                </a>
-            </div>
-        </center>
-        <center>
-            <div class="authors">
-                <a href="autorzy/autorzyindex.html">
-                    <img src="/autorzy.png">
-                </a>
-            </div>
-        </center>
+        <div class="play">
+            <a href="graj\grajindex.html">
+            <h2>GRAJ</h2>
+            </a>
+        </div>
+        <div class="instruction">
+            <a href="instrukcja/instrukcjaindex.html">
+            <h2>INSTRUKCJA</h2>
+            </a>
+        </div>
+        <div class="authors">
+            <a href="autorzy/autorzyindex.html">
+            <h2>AUTORZY</h2>
+            </a>
+        </div>
     </div>
 
     <!--
@@ -100,7 +87,6 @@
         </div>
     </div>
     -->
-
 
 </body>
 </html>

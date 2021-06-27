@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\html"
+    "\\css\\font",
+    "\\html",
+    "\\img",
+    "\\img\\background"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\html\\Start.html",
   "PreviewInSolutionExplorer": false
 }

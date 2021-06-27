@@ -1,22 +1,76 @@
-body
-{
-	background-image: url(/table.jpg);
+@font-face {
+	font-family: CyberFont;
+	src: url(/font/mars-police.italic.ttf);
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height:	100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-image: url(/background/High_tech_black_background.jpg);
 	background-position: center;
 	background-attachment: fixed;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
+	font-family: CyberFont;
+	color: white;
+
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+
+}
+.profile {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	width: 200px;
+	height: 300px;
+	background-color: mintcream;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.profile img{
+	width: 30%;
+	height: auto;
+}
+
+.main {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	align-content: space-around;
 }
 
 .play a:hover img
 {
-opacity: .5;
+	opacity: .5;
 }
 
 .instruction a:hover img
 {
-opacity: .5;
+	opacity: .5;
 }
 
 .authors a:hover img
 {
-opacity: .5;
+	opacity: .5;
+}
+
+h1{
+	font-size: 100px;
 }
