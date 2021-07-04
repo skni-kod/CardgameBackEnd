@@ -1,0 +1,210 @@
+@font-face {
+	font-family: CyberFont;
+	src: url(MarsPoliceItalicFinal.ttf);
+}
+
+body
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #111;
+	font-family: CyberFont;
+}
+
+.container
+{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+	flex-wrap: wrap;
+}
+
+.container .box
+{
+	position: relative;
+	width: 320px;
+	height: 420px;
+	color: #fff;
+	background: #111;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 30px;
+	transition: 0.5s;
+	overflow: hidden;
+}
+
+.container .box:hover
+{
+	transform: translateY(-20px);
+	opacity: 0.7;
+}
+
+.container .box::before
+{
+	content: '';
+	position: absolute;
+	top: 0;
+	Left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, #000000, #1900a7, #ffffff);
+}
+
+.container .box::after
+{
+	content: '';
+	position: absolute;
+	top: 0;
+	Left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, #000000, #1900a7, #ffffff);
+	filter: blur(30px);
+}
+
+.container .box:nth-child(2)::before,
+.container .box:nth-child(2)::after
+{
+	background: linear-gradient(45deg, #000000, #8b0000, #ffffff);
+}
+
+.container .box:nth-child(3)::before,
+.container .box:nth-child(3)::after
+{
+	background: linear-gradient(45deg, #000000, #ffc400c7, #ffffff);
+}
+
+.container .box span:nth-child(1)
+{
+	position: absolute;
+	top: 8px;
+	bottom: 8px;
+	left: 8px;
+	right: 8px;
+	background: rgba(0,0,0,1);
+}
+
+.container .box span
+{
+	transition: 0.5;
+	opacity: 0;
+}
+
+.container .box:hover span
+{
+	opacity: 1;
+}
+
+.container .box span:nth-child(2)
+{
+	position: absolute;
+	top: 0;
+	Left: 0;
+	width: 100%;
+	height: 8px;
+	background: linear-gradient(to right, transparent, #ffffff);
+	animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1
+{
+	0%
+	{
+		transform: translateX(-100%);
+	}
+	100%
+	{
+		transform: translateX(100%);
+	}
+}
+
+.container .box span:nth-child(3)
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 8px;
+	height: 100%;
+	background: linear-gradient(to bottom, transparent, #ffffff);
+	animation: animate2 1s linear infinite;
+	animation-delay: 0.5s;
+}
+
+@keyframes animate2
+{
+	0%
+	{
+		transform: translateY(-100%);
+	}
+	100%
+	{
+		transform: translateY(100%);
+	}
+}
+
+.container .box span:nth-child(4)
+{
+	position: absolute;
+	bottom: 0;
+	Left: 0;
+	width: 100%;
+	height: 8px;
+	background: linear-gradient(to left, transparent, #ffffff);
+	animation: animate3 1s linear infinite;
+}
+
+@keyframes animate3
+{
+	0%
+	{
+		transform: translateX(100%);
+	}
+	100%
+	{
+		transform: translateX(-100%);
+	}
+}
+
+.container .box span:nth-child(5)
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 8px;
+	height: 100%;
+	background: linear-gradient(to top, transparent, #ffffff);
+	animation: animate4 1s linear infinite;
+	animation-delay: 0.5s;
+}
+
+@keyframes animate4
+{
+	0%
+	{
+		transform: translateY(100%);
+	}
+	100%
+	{
+		transform: translateY(-100%);
+	}
+}
+
+.container .box .content
+{
+	position: relative;
+	z-index: 10;
+	padding: 20px 40px;
+}
+
+.container .box .content h2
+{
+	font-size: 40px;
+	background: -webkit-linear-gradient(90deg, #ffffff 0%, #000000 100%);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,49 @@
+@font-face {
+	font-family: CyberFont;
+	src: url(/font/MarsPoliceItalicFinal.ttf);
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	align-content: space-around;
+}
+
+body {
+	height:	100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-image: url(/background/High_tech_black_background.jpg);
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: repeat;
+	font-family: CyberFont;
+	color: white;
+
+	cursor: url("/background/cursor.cur"), pointer;
+	
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.back a:hover img
+{
+	opacity: .5;
+}
+
+h1{
+	font-size: 100px;
+}

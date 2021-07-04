@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Karcianka</title>
+    <title>Cyberkarty</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -12,13 +12,38 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/stylereg.css" type="text/css" />
 </head>
 <body>
 
+    <!-- ślaczek za kursorem -->
+    <script 
+    data-scatter="0.5" 
+    data-initscatter="3" 
+    data-elemsize="5" 
+    data-countelems="20" 
+    data-fallingspeed="0" 
+    data-lifespan="1" 
+    data-initopac="0.4" 
+    data-shapetype="normal" 
+    data-rotation="0" 
+    data-startrotated="0" 
+    data-colortype="multi" 
+    data-glow="0" 
+    data-glitter="1" 
+    data-shapenormal="star1" 
+    data-multicolorobj-i1="rgb(51,231,255)" 
+    data-multicolorobj-i2="rgb(51,75,255)" 
+    data-multicolorobj-i3="rgb(255,255,255)" 
+    data-colorsorder="0" 
+    src="http://profilki.pl/scr/cursoreffect.js">
+    </script>
+    
     <div class="container">
         <div class="row text-right">
             <div class="col">
-                <h1> Rejestracja</h1>
+                <h1> Rejestracja </h1>
             </div>
             <div class="col text-left mt-3">
                 <h5 class="text-danger"><%= message %>  </h5>
@@ -28,12 +53,24 @@
 
         <div class="row">
             <form action="CreateAccount" method="post">
+                <br></br>
                 <input name="username" type="text" placeholder="Nazwa użytkownika" />
+                <br></br>
                 <input name="email" type="text" placeholder="Email" />
+                <br></br>
                 <input name="password" type="password" placeholder="Hasło" />
+                <br></br>
                 <input name="password2" type="password" placeholder="Powtórz hasło" />
-                <input type="submit" value="submit" />
+                <br></br>
+                <input type="submit" value="Zarejestruj" />
+                <br></br>
             </form>
+        </div>
+
+        <div class="back">
+            <a href="javascript:history.back();">
+            <h2>WSTECZ</h2>
+            </a>
         </div>
     
     </div>
